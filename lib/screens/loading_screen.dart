@@ -3,8 +3,9 @@ import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 import 'package:clima/screens/location_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-const apiKey = '17ea18adbbf828bb4c48726a50fb6c16';
+final apiKey = dotenv.env['API_KEY'];
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -22,9 +23,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
     longitude = location.longitude;
     Uri url = Uri.parse(
         "https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}");
+
     NetworkHelper networkHelper = NetworkHelper(url);
 
     var weatherData = await networkHelper.fetchData();
+
+    // print(weatherData);
+    print({latitude, longitude, apiKey});
 
     Navigator.push(
         context,
