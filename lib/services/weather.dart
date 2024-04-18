@@ -9,6 +9,11 @@ class WeatherModel {
   Future<dynamic> getLocationWeather() async {
     Location location = Location();
     await location.getCurrentLocation();
+
+    if (location.latitude == null || location.longitude == null) {
+      return;
+    }
+
     Uri url = Uri.parse(
         "$openWeathermapUrl?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}&units=metric");
 
@@ -41,13 +46,13 @@ class WeatherModel {
 
   String getMessage(int temp) {
     if (temp > 25) {
-      return 'It\'s 🍦 time';
+      return 'It\'s 🍦 time in';
     } else if (temp > 20) {
-      return 'Time for shorts and 👕';
+      return 'Time for shorts and 👕 im';
     } else if (temp < 10) {
-      return 'You\'ll need 🧣 and 🧤';
+      return 'You\'ll need 🧣 and 🧤 in';
     } else {
-      return 'Bring a 🧥 just in case';
+      return 'Bring a 🧥 just in case in';
     }
   }
 }
