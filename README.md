@@ -1,10 +1,10 @@
 # Clima Weather App
 
-The Clima Weather App is a simple Flutter application that allows users to retrieve past weather data using the OpenWeather API. Users can search for weather data by providing location names or coordinates.
+The Clima Weather App is a simple Flutter application that allows users to retrieve weather data using the OpenWeather API. Users can search for weather data by providing location names or coordinates.
 
 ## Features
 
-- Retrieve past weather data using the OpenWeather API.
+- Retrieve weather data using the OpenWeather API.
 - Search for weather data by location name or coordinates.
 - View detailed weather information such as temperature, humidity, wind speed, etc.
 
